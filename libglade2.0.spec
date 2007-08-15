@@ -31,7 +31,7 @@ BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 BuildConflicts:	libglade0-devel < 0.17
 
-BuildRequires:	autoconf2.5
+BuildRequires:	autoconf
 BuildRequires:	libxml2-devel >= %{req_libxml2_version}
 BuildRequires:	libatk1.0-devel >= %{req_atk_version}
 BuildRequires:	libgtk+2.0-devel >= %{req_gtk_version}
