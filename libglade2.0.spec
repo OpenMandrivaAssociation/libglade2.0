@@ -14,13 +14,14 @@
 
 %define pkgname		libglade
 %define api_version	2.0
+%define api_major_version 2
 %define lib_major	0
 %define lib_name	%mklibname glade %{api_version} %{lib_major}
 
 Summary:	Library for dynamically loading GLADE interface files
 Name:		%{pkgname}%{api_version}
 Version: 2.6.2
-Release: %mkrel 2
+Release: %mkrel 3
 License:	LGPL
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
@@ -63,6 +64,7 @@ Summary:	Libraries, includes, etc to develop libglade applications
 Group:		Development/GNOME and GTK+
 Conflicts:	libglade0-devel < 0.17
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
+Provides:	%{pkgname}%{api_major_version}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}-%{release}
 Requires:	libgtk+2.0-devel >= %{req_gtk_version}
 Requires:	libxml2-devel >= %{req_libxml2_version}
