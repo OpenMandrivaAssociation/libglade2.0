@@ -21,7 +21,7 @@
 Summary:	Library for dynamically loading GLADE interface files
 Name:		%{pkgname}%{api_version}
 Version: 2.6.2
-Release: %mkrel 3
+Release: %mkrel 4
 License:	LGPL
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
