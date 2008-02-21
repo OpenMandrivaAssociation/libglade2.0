@@ -21,13 +21,15 @@
 Summary:	Library for dynamically loading GLADE interface files
 Name:		%{pkgname}%{api_version}
 Version: 2.6.2
-Release: %mkrel 4
+Release: %mkrel 5
 License:	LGPL
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 2.5.1-3mdk fix some warnings (Fedora) (GNOME bug #121025)
 Patch0:		libglade-2.0.1-nowarning.patch
+# (fc) 2.6.2-5mdv fix invalid call to g_free (SVN)
+Patch1:		libglade-2.6.2-gfree.patch
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 BuildConflicts:	libglade0-devel < 0.17
@@ -86,6 +88,7 @@ you can use to develop %{pkgname} applications.
 %prep
 %setup -q -n %{pkgname}-%{version}
 %patch0 -p1 -b .warnings
+%patch1 -p1 -b .gfree
 
 %build
 %configure2_5x \
