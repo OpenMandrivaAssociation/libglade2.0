@@ -21,9 +21,9 @@
 Summary:	Library for dynamically loading GLADE interface files
 Name:		%{pkgname}%{api_version}
 Version: 2.6.2
-Release: %mkrel 5
+Release: %mkrel 6
 License:	LGPL
-Group:		Graphical desktop/GNOME
+Group:		System/Libraries
 URL:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 # (fc) 2.5.1-3mdk fix some warnings (Fedora) (GNOME bug #121025)
