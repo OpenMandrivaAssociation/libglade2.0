@@ -17,11 +17,13 @@
 %define api_major_version 2
 %define lib_major	0
 %define lib_name	%mklibname glade %{api_version} %{lib_major}
+%define develname	%mklibname glade %{api_version} -d
+%define staticname	%mklibname glade %{api_version} -s -d
 
 Summary:	Library for dynamically loading GLADE interface files
 Name:		%{pkgname}%{api_version}
-Version: 2.6.4
-Release: %mkrel 4
+Version: 	2.6.4
+Release: 	%mkrel 5
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org
@@ -59,7 +61,7 @@ stored externally.  This allows alteration of the interface without
 recompilation of the program.
 
 
-%package -n %{lib_name}-devel
+%package -n %{develname}
 Summary:	Libraries, includes, etc to develop libglade applications
 Group:		Development/GNOME and GTK+
 Conflicts:	libglade0-devel < 0.17
@@ -70,16 +72,12 @@ Requires:	libgtk+2.0-devel >= %{req_gtk_version}
 Requires:	libxml2-devel >= %{req_libxml2_version}
 # $bindir/libglade-convert is python script
 Requires:	python >= 2.0
-Requires(post):     sgml-common >= 0.6.3-2mdk
-Requires(postun):     sgml-common >= 0.6.3-2mdk
+Requires(post):     sgml-common >= 0.6.3-2
+Requires(postun):     sgml-common >= 0.6.3-2
+Obsoletes:	%{lib_name}-devel < %{version}-%{release}
 
-
-%description -n %{lib_name}-devel
-%{pkgname} allows you to load user interfaces in your program, which are
-stored externally.  This allows alteration of the interface without
-recompilation of the program.
-
-This package contains static libraries, include files, etc so that
+%description -n %{develname}
+This package contains libraries, include files, etc so that
 you can use to develop %{pkgname} applications.
 
 
@@ -90,7 +88,8 @@ you can use to develop %{pkgname} applications.
 %build
 %configure2_5x \
 %if !%enable_gtkdoc
-	--enable-gtk-doc=no
+	--enable-gtk-doc=no \
+	--disable-static
 %endif
 
 %make
@@ -116,13 +115,13 @@ rm -rf %{buildroot}
 %postun -n %{lib_name} -p /sbin/ldconfig
 %endif
 
-%post -n %{lib_name}-devel
+%post -n %{develname}
 CATALOG=/etc/xml/catalog
 %{_bindir}/xmlcatalog --noout --add "system" \
 		"http://glade.gnome.org/glade-2.0.dtd" \
 		%{_datadir}/xml/libglade/glade-2.0.dtd $CATALOG || true
 
-%postun -n %{lib_name}-devel
+%postun -n %{develname}
 # Do not remove if upgrade
 if [ "$1" = "0" ]; then
  CATALOG=/etc/xml/catalog
@@ -139,14 +138,13 @@ fi
 %dir %{_libdir}/libglade
 %dir %{_libdir}/libglade/%{api_version}
 
-%files -n %{lib_name}-devel
+%files -n %{develname}
 %defattr(-, root, root)
 %doc AUTHORS examples
 %doc %{_datadir}/gtk-doc/html/*
 %{_bindir}/*
 %{_datadir}/xml/libglade
 %{_includedir}/*
-%{_libdir}/lib*.a
 %{_libdir}/lib*.la
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
