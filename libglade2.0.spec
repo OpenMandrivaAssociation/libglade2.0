@@ -36,9 +36,9 @@ BuildConflicts:	libglade0-devel < 0.17
 
 BuildRequires:	autoconf
 BuildRequires:	libxml2-devel >= %{req_libxml2_version}
-BuildRequires:	libatk1.0-devel >= %{req_atk_version}
-BuildRequires:	libgtk+2.0-devel >= %{req_gtk_version}
-BuildRequires:	libglib2.0-devel >= 2.3.1
+BuildRequires:	atk-devel >= %{req_atk_version}
+BuildRequires:	gtk2-devel >= %{req_gtk_version}
+BuildRequires:	glib2-devel >= 2.3.1
 BuildRequires:	python >= 2.0
 %if %enable_gtkdoc
 BuildRequires:	gtk-doc >= 0.9
