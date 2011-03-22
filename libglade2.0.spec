@@ -74,7 +74,7 @@ Requires:	libxml2-devel >= %{req_libxml2_version}
 Requires:	python >= 2.0
 Requires(post):     sgml-common >= 0.6.3-2
 Requires(postun):     sgml-common >= 0.6.3-2
-Obsoletes:	%{lib_name}-devel < %{version}-%{release}
+Obsoletes:	%{mklibname glade 2.0 0}-devel 
 
 %description -n %{develname}
 This package contains libraries, include files, etc so that
