@@ -87,9 +87,9 @@ you can use to develop %{pkgname} applications.
 
 %build
 %configure2_5x \
+	--disable-static \
 %if !%enable_gtkdoc
-	--enable-gtk-doc=no \
-	--disable-static
+	--enable-gtk-doc=no
 %endif
 
 %make
