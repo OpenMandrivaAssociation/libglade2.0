@@ -13,7 +13,7 @@
 Summary:	Library for dynamically loading GLADE interface files
 Name:		%{pkgname}%{api}
 Version: 	2.6.4
-Release: 	23
+Release: 	24
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
