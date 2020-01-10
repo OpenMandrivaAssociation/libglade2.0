@@ -62,7 +62,7 @@ you can use to develop %{pkgname} applications.
 
 %prep
 %setup -qn %{pkgname}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 autoconf
