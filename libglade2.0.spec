@@ -16,7 +16,7 @@ Version: 	2.6.4
 Release: 	29
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.gnome.org
+Url:		https://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/%{url_ver}/%{pkgname}-%{version}.tar.bz2
 # (fc) 2.5.1-3mdk fix some warnings (Fedora) (GNOME bug #121025)
 Patch0:		libglade-2.0.1-nowarning.patch
